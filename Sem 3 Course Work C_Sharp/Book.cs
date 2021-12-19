@@ -20,7 +20,7 @@ namespace Sem_3_Course_Work_C_Sharp
         public string ChapterText { get; set; }
 
         //[JsonPropertyName("ChapterVariants")]
-        public string[] ChapterVariants { get; set; }
+        public Dictionary<string, int> ChapterVariants { get; set; }
 
         
 

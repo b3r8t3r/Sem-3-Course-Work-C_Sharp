@@ -14,9 +14,31 @@ namespace Sem_3_Course_Work_C_Sharp
             //OpenBookDialog.Filter = "Файл интерактивной книги (*.ibr)|*.ibr|Текстовый документ (*.txt)|*.txt|Все файлы (*.*)|*.*";
         }
 
+        static Book restored_book;
+
+        static int chapter_index = 0;
+
+        private void ChangeChapter()
+        {
+            int i = 0;
+            BookLabel.Text = restored_book.BookTitle;
+            while (restored_book.Chapters[i].ChapterId != chapter_index)
+            {
+                i++;
+                if (i >= restored_book.Chapters.Count()) i = -1;
+            }
+            ChapterText.Text = restored_book.Chapters[i].ChapterText;
+            ChoiceOptions.Items.Clear();
+
+            string[] temp_array = restored_book.Chapters[i].ChapterVariants.Keys.ToArray();
+
+            ChoiceOptions.Items.AddRange(temp_array);
+            ChoiceOptions.SelectedValue = ChoiceOptions.Items[0];
+        }
+
         private void OpenBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Book restored_book = new Book();
+            restored_book = new Book();
 
             if (OpenBookDialog.ShowDialog() == DialogResult.Cancel)
                 return;
@@ -28,21 +50,24 @@ namespace Sem_3_Course_Work_C_Sharp
             restored_book = JsonSerializer.Deserialize<Book>(FileReader.ReadLine());
             FileReader.Close();
 
-
-            BookLabel.Text = restored_book.BookTitle;
-            ChapterText.Text = restored_book.Chapters[0].ChapterText;
-            ChoiceOptions.Items.Clear();
-            ChoiceOptions.Items.AddRange(restored_book.Chapters[0].ChapterVariants);
+            ChangeChapter();
+            
             //ChapterText.Text = fileText;
-            // MessageBox.Show("Файл открыт");
+            MessageBox.Show("Книга успешно открыта!");
         }
 
         private void AcceptButton_Click(object sender, EventArgs e)
         {
-            if (ChoiceOptions.SelectedIndex == 0)
-            {
+            string selectedVariant = ChoiceOptions.SelectedItem.ToString();
 
-            }
+            if (chapter_index != -1)
+                chapter_index = restored_book.Chapters[chapter_index].ChapterVariants[selectedVariant];
+            else Application.Exit();
+            
+            MessageBox.Show($"Выбран вариант с индексом {ChoiceOptions.SelectedIndex}!\nЭтот вариант - \"{selectedVariant}\"");
+
+            ChangeChapter();
+            
         }
 
         private void AboutProgrammToolStripMenuItem_Click(object sender, EventArgs e)
@@ -59,16 +84,6 @@ namespace Sem_3_Course_Work_C_Sharp
             ChoiceOptions.Font = fontDialog.Font;
             ChapterText.Font = fontDialog.Font;
             AcceptButton.Font = fontDialog.Font;
-        }
-
-        private void SerializeBook()
-        {
-            
-        }
-
-        private void DeserializeBook()
-        {
-
         }
 
         //private void 

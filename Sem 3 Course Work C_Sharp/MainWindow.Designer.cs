@@ -52,7 +52,6 @@
             this.ChoiceOptions.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChoiceOptions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ChoiceOptions.Font = new System.Drawing.Font("Cascadia Code Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ChoiceOptions.FormattingEnabled = true;
             this.ChoiceOptions.Items.AddRange(new object[] {
             "variant_01",
             "variant_02",
@@ -166,7 +165,7 @@
             // AboutProgrammToolStripMenuItem
             // 
             this.AboutProgrammToolStripMenuItem.Name = "AboutProgrammToolStripMenuItem";
-            this.AboutProgrammToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.AboutProgrammToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.AboutProgrammToolStripMenuItem.Text = "О программе";
             this.AboutProgrammToolStripMenuItem.Click += new System.EventHandler(this.AboutProgrammToolStripMenuItem_Click);
             // 
