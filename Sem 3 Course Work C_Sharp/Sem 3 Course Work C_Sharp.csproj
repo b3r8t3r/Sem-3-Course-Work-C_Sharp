@@ -7,7 +7,30 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>Scroll icon.ico</ApplicationIcon>
+    <SignAssembly>False</SignAssembly>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/BlackWolfy007/Sem-3-Course-Work-C_Sharp</RepositoryUrl>
+    <PackageIcon>Scroll image 128x128.png</PackageIcon>
+    <Copyright>Открытое программное обеспечение</Copyright>
+    <Description>Программа для чтения интерактивных книг в формате "ibr" (Interactive Book Reader).
+
+Программа выполнена студентом 2 курса Новосибирского Государственного Технического Университета группы АБ-021 Шуваевым Вадимом.</Description>
+    <Product>$(AssemblyName)</Product>
+    <Company />
+    <Authors>$(myAssemblyName)</Authors>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Scroll icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\..\..\..\OneDrive\Рабочий стол\Course Work Source\Scroll image 128x128.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">

@@ -22,18 +22,26 @@ namespace Sem_3_Course_Work_C_Sharp
         {
             int i = 0;
             BookLabel.Text = restored_book.BookTitle;
-            while (restored_book.Chapters[i].ChapterId != chapter_index)
-            {
-                i++;
-                if (i >= restored_book.Chapters.Count()) i = -1;
+            //while (restored_book.Chapters[i].ChapterId != chapter_index)
+            //{
+            //    i++;
+            //    //if (i >= restored_book.Chapters.Count()) i = -1;
+            //}
+
+            for (i = 0; restored_book.Chapters[i].ChapterId != chapter_index; i++) { 
+                if (i >= restored_book.Chapters.Count()) { 
+                    i = -1; 
+                    chapter_index = -1; 
+                }
             }
+
             ChapterText.Text = restored_book.Chapters[i].ChapterText;
             ChoiceOptions.Items.Clear();
 
             string[] temp_array = restored_book.Chapters[i].ChapterVariants.Keys.ToArray();
 
             ChoiceOptions.Items.AddRange(temp_array);
-            ChoiceOptions.SelectedValue = ChoiceOptions.Items[0];
+            ChoiceOptions.SelectedIndex = 0;
         }
 
         private void OpenBookToolStripMenuItem_Click(object sender, EventArgs e)
@@ -58,15 +66,24 @@ namespace Sem_3_Course_Work_C_Sharp
 
         private void AcceptButton_Click(object sender, EventArgs e)
         {
-            string selectedVariant = ChoiceOptions.SelectedItem.ToString();
+            string? selectedVariant = ChoiceOptions.SelectedItem.ToString();
 
-            if (chapter_index != -1)
-                chapter_index = restored_book.Chapters[chapter_index].ChapterVariants[selectedVariant];
-            else Application.Exit();
-            
-            MessageBox.Show($"Выбран вариант с индексом {ChoiceOptions.SelectedIndex}!\nЭтот вариант - \"{selectedVariant}\"");
+            if (selectedVariant == null)
+            {
+                MessageBox.Show($"Вы ничего не выбрали. Пожалуйста, выберите вариант дальнейшего развития событий.");
+            }
 
-            ChangeChapter();
+            else
+            {
+
+                if (chapter_index != -1)
+                    chapter_index = restored_book.Chapters[chapter_index].ChapterVariants[selectedVariant];
+                else Application.Exit();
+
+                //MessageBox.Show($"Выбран вариант с индексом {ChoiceOptions.SelectedIndex}!\nЭтот вариант - \"{selectedVariant}\"");
+
+                ChangeChapter();
+            }
             
         }
 
@@ -84,6 +101,17 @@ namespace Sem_3_Course_Work_C_Sharp
             ChoiceOptions.Font = fontDialog.Font;
             ChapterText.Font = fontDialog.Font;
             AcceptButton.Font = fontDialog.Font;
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            ChoiceOptions.SelectedIndex = 0;
+        }
+
+        private void OpenBookEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BookEditor form = new BookEditor();
+            form.ShowDialog();
         }
 
         //private void 

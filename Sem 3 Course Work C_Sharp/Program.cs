@@ -1,3 +1,4 @@
+using System.Reflection;
 namespace Sem_3_Course_Work_C_Sharp
 {
     internal static class Program

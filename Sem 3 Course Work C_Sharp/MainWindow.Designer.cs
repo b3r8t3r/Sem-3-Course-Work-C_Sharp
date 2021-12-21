@@ -36,6 +36,7 @@
             this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenBookEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.параметрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenFontParametersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.информацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -109,10 +110,11 @@
             this.ChapterText.ReadOnly = true;
             this.ChapterText.Size = new System.Drawing.Size(990, 542);
             this.ChapterText.TabIndex = 5;
-            this.ChapterText.Text = resources.GetString("ChapterText.Text");
+            this.ChapterText.Text = "Пожалуйста, откройте интерактивную книгу с помощью \"Файл\" -> \"Открыть книгу\".";
             // 
             // MainMenuStrip
             // 
+            this.MainMenuStrip.BackColor = System.Drawing.Color.BurlyWood;
             this.MainMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
@@ -126,21 +128,33 @@
             // 
             // файлToolStripMenuItem
             // 
+            this.файлToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.OpenBookToolStripMenuItem});
+            this.OpenBookToolStripMenuItem,
+            this.OpenBookEditorToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // OpenBookToolStripMenuItem
             // 
+            this.OpenBookToolStripMenuItem.BackColor = System.Drawing.Color.BurlyWood;
             this.OpenBookToolStripMenuItem.Name = "OpenBookToolStripMenuItem";
-            this.OpenBookToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
+            this.OpenBookToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.OpenBookToolStripMenuItem.Text = "Открыть книгу";
             this.OpenBookToolStripMenuItem.Click += new System.EventHandler(this.OpenBookToolStripMenuItem_Click);
             // 
+            // OpenBookEditorToolStripMenuItem
+            // 
+            this.OpenBookEditorToolStripMenuItem.BackColor = System.Drawing.Color.BurlyWood;
+            this.OpenBookEditorToolStripMenuItem.Name = "OpenBookEditorToolStripMenuItem";
+            this.OpenBookEditorToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
+            this.OpenBookEditorToolStripMenuItem.Text = "Открыть редактор книг";
+            this.OpenBookEditorToolStripMenuItem.Click += new System.EventHandler(this.OpenBookEditorToolStripMenuItem_Click);
+            // 
             // параметрыToolStripMenuItem
             // 
+            this.параметрыToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.параметрыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.OpenFontParametersToolStripMenuItem});
             this.параметрыToolStripMenuItem.Name = "параметрыToolStripMenuItem";
@@ -149,6 +163,7 @@
             // 
             // OpenFontParametersToolStripMenuItem
             // 
+            this.OpenFontParametersToolStripMenuItem.BackColor = System.Drawing.Color.BurlyWood;
             this.OpenFontParametersToolStripMenuItem.Name = "OpenFontParametersToolStripMenuItem";
             this.OpenFontParametersToolStripMenuItem.Size = new System.Drawing.Size(300, 26);
             this.OpenFontParametersToolStripMenuItem.Text = "Открыть параметры шрифтов";
@@ -156,6 +171,7 @@
             // 
             // информацияToolStripMenuItem
             // 
+            this.информацияToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.информацияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AboutProgrammToolStripMenuItem});
             this.информацияToolStripMenuItem.Name = "информацияToolStripMenuItem";
@@ -164,8 +180,9 @@
             // 
             // AboutProgrammToolStripMenuItem
             // 
+            this.AboutProgrammToolStripMenuItem.BackColor = System.Drawing.Color.BurlyWood;
             this.AboutProgrammToolStripMenuItem.Name = "AboutProgrammToolStripMenuItem";
-            this.AboutProgrammToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.AboutProgrammToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.AboutProgrammToolStripMenuItem.Text = "О программе";
             this.AboutProgrammToolStripMenuItem.Click += new System.EventHandler(this.AboutProgrammToolStripMenuItem_Click);
             // 
@@ -187,12 +204,14 @@
             this.Controls.Add(this.AcceptButton);
             this.Controls.Add(this.ChoiceOptions);
             this.Controls.Add(this.MainMenuStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(2540, 1600);
             this.MinimumSize = new System.Drawing.Size(640, 480);
             this.Name = "MainWindow";
             this.Padding = new System.Windows.Forms.Padding(5, 0, 5, 20);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Interactive Book Reader";
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.MainMenuStrip.ResumeLayout(false);
             this.MainMenuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -214,5 +233,6 @@
         private ToolStripMenuItem AboutProgrammToolStripMenuItem;
         private OpenFileDialog OpenBookDialog;
         private FontDialog fontDialog;
+        private ToolStripMenuItem OpenBookEditorToolStripMenuItem;
     }
 }
