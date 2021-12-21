@@ -28,20 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BookEditorStrip = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.открытьКнигуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CreateNewBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.главыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.переключитьсяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.OpenBookDialog = new System.Windows.Forms.OpenFileDialog();
+            this.SaveBookDialog = new System.Windows.Forms.SaveFileDialog();
             this.IntercativeBookPropperties = new System.Windows.Forms.TabControl();
             this.BookProppertiesPage = new System.Windows.Forms.TabPage();
-            this.Password = new System.Windows.Forms.TextBox();
+            this.PasswordChecking = new System.Windows.Forms.TextBox();
             this.PasswordSetupLabel = new System.Windows.Forms.Label();
             this.PasswordSetBox = new System.Windows.Forms.TextBox();
             this.BookPropperties_SaveChangesButton = new System.Windows.Forms.Button();
@@ -61,9 +65,9 @@
             this.SaveChapterText = new System.Windows.Forms.Button();
             this.ChaperTextEditorLabel = new System.Windows.Forms.Label();
             this.ChapterText = new System.Windows.Forms.RichTextBox();
-            this.VariantsEditorPage = new System.Windows.Forms.TabPage();
+            this.VariantsEditorTab = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.VariantsGrid = new System.Windows.Forms.DataGridView();
             this.Grid_VariantNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Grid_VariantText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Grid_NextChapterId = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -76,8 +80,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.VariantNumberCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ChapterIDEdit)).BeginInit();
             this.ChapterTextProppertiesTab.SuspendLayout();
-            this.VariantsEditorPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.VariantsEditorTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VariantsGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // BookEditorStrip
@@ -99,7 +103,7 @@
             this.файлToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SaveBookToolStripMenuItem,
-            this.открытьКнигуToolStripMenuItem,
+            this.OpenBookToolStripMenuItem,
             this.CreateNewBookToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
@@ -112,13 +116,13 @@
             this.SaveBookToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
             this.SaveBookToolStripMenuItem.Text = "Сохранить книгу";
             // 
-            // открытьКнигуToolStripMenuItem
+            // OpenBookToolStripMenuItem
             // 
-            this.открытьКнигуToolStripMenuItem.BackColor = System.Drawing.Color.BurlyWood;
-            this.открытьКнигуToolStripMenuItem.Name = "открытьКнигуToolStripMenuItem";
-            this.открытьКнигуToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
-            this.открытьКнигуToolStripMenuItem.Text = "Открыть книгу";
-            this.открытьКнигуToolStripMenuItem.Click += new System.EventHandler(this.открытьКнигуToolStripMenuItem_Click);
+            this.OpenBookToolStripMenuItem.BackColor = System.Drawing.Color.BurlyWood;
+            this.OpenBookToolStripMenuItem.Name = "OpenBookToolStripMenuItem";
+            this.OpenBookToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
+            this.OpenBookToolStripMenuItem.Text = "Открыть книгу";
+            this.OpenBookToolStripMenuItem.Click += new System.EventHandler(this.OpenBookToolStripMenuItem_Click);
             // 
             // CreateNewBookToolStripMenuItem
             // 
@@ -126,6 +130,7 @@
             this.CreateNewBookToolStripMenuItem.Name = "CreateNewBookToolStripMenuItem";
             this.CreateNewBookToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
             this.CreateNewBookToolStripMenuItem.Text = "Создать новую книгу";
+            this.CreateNewBookToolStripMenuItem.Click += new System.EventHandler(this.CreateNewBookToolStripMenuItem_Click);
             // 
             // главыToolStripMenuItem
             // 
@@ -142,33 +147,33 @@
             // 
             this.добавитьToolStripMenuItem.BackColor = System.Drawing.Color.BurlyWood;
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.добавитьToolStripMenuItem.Text = "Добавить";
             // 
             // переключитьсяToolStripMenuItem
             // 
             this.переключитьсяToolStripMenuItem.BackColor = System.Drawing.Color.BurlyWood;
             this.переключитьсяToolStripMenuItem.Name = "переключитьсяToolStripMenuItem";
-            this.переключитьсяToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.переключитьсяToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.переключитьсяToolStripMenuItem.Text = "Переключиться";
             // 
             // удалитьToolStripMenuItem
             // 
             this.удалитьToolStripMenuItem.BackColor = System.Drawing.Color.BurlyWood;
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             // 
-            // openFileDialog1
+            // OpenBookDialog
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.OpenBookDialog.Title = "Открыть книгу";
             // 
             // IntercativeBookPropperties
             // 
             this.IntercativeBookPropperties.Controls.Add(this.BookProppertiesPage);
             this.IntercativeBookPropperties.Controls.Add(this.ChapterProppertiesPage);
             this.IntercativeBookPropperties.Controls.Add(this.ChapterTextProppertiesTab);
-            this.IntercativeBookPropperties.Controls.Add(this.VariantsEditorPage);
+            this.IntercativeBookPropperties.Controls.Add(this.VariantsEditorTab);
             this.IntercativeBookPropperties.Dock = System.Windows.Forms.DockStyle.Fill;
             this.IntercativeBookPropperties.Location = new System.Drawing.Point(0, 28);
             this.IntercativeBookPropperties.Multiline = true;
@@ -180,7 +185,7 @@
             // BookProppertiesPage
             // 
             this.BookProppertiesPage.BackColor = System.Drawing.Color.PapayaWhip;
-            this.BookProppertiesPage.Controls.Add(this.Password);
+            this.BookProppertiesPage.Controls.Add(this.PasswordChecking);
             this.BookProppertiesPage.Controls.Add(this.PasswordSetupLabel);
             this.BookProppertiesPage.Controls.Add(this.PasswordSetBox);
             this.BookProppertiesPage.Controls.Add(this.BookPropperties_SaveChangesButton);
@@ -195,18 +200,19 @@
             this.BookProppertiesPage.TabIndex = 0;
             this.BookProppertiesPage.Text = "Настройки книги";
             // 
-            // Password
+            // PasswordChecking
             // 
-            this.Password.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.PasswordChecking.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Password.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Password.Location = new System.Drawing.Point(163, 465);
-            this.Password.MaxLength = 200;
-            this.Password.Name = "Password";
-            this.Password.PlaceholderText = "Подтверждение пароля";
-            this.Password.Size = new System.Drawing.Size(661, 43);
-            this.Password.TabIndex = 14;
-            this.Password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PasswordChecking.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.PasswordChecking.Location = new System.Drawing.Point(163, 465);
+            this.PasswordChecking.MaxLength = 200;
+            this.PasswordChecking.Name = "PasswordChecking";
+            this.PasswordChecking.PlaceholderText = "Подтверждение пароля";
+            this.PasswordChecking.Size = new System.Drawing.Size(661, 43);
+            this.PasswordChecking.TabIndex = 14;
+            this.PasswordChecking.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PasswordChecking.UseSystemPasswordChar = true;
             // 
             // PasswordSetupLabel
             // 
@@ -214,11 +220,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PasswordSetupLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PasswordSetupLabel.Font = new System.Drawing.Font("Courier New", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.PasswordSetupLabel.Location = new System.Drawing.Point(52, 349);
+            this.PasswordSetupLabel.Location = new System.Drawing.Point(43, 349);
             this.PasswordSetupLabel.Margin = new System.Windows.Forms.Padding(10);
             this.PasswordSetupLabel.Name = "PasswordSetupLabel";
             this.PasswordSetupLabel.Padding = new System.Windows.Forms.Padding(10);
-            this.PasswordSetupLabel.Size = new System.Drawing.Size(916, 54);
+            this.PasswordSetupLabel.Size = new System.Drawing.Size(925, 54);
             this.PasswordSetupLabel.TabIndex = 13;
             this.PasswordSetupLabel.Text = "Установка пароля для книги";
             this.PasswordSetupLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -235,6 +241,7 @@
             this.PasswordSetBox.Size = new System.Drawing.Size(661, 43);
             this.PasswordSetBox.TabIndex = 12;
             this.PasswordSetBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PasswordSetBox.UseSystemPasswordChar = true;
             // 
             // BookPropperties_SaveChangesButton
             // 
@@ -400,10 +407,10 @@
             // AllowEditChapterID
             // 
             this.AllowEditChapterID.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.AllowEditChapterID.Location = new System.Drawing.Point(312, 212);
+            this.AllowEditChapterID.Location = new System.Drawing.Point(362, 212);
             this.AllowEditChapterID.Margin = new System.Windows.Forms.Padding(3, 3, 3, 40);
             this.AllowEditChapterID.Name = "AllowEditChapterID";
-            this.AllowEditChapterID.Size = new System.Drawing.Size(348, 31);
+            this.AllowEditChapterID.Size = new System.Drawing.Size(252, 31);
             this.AllowEditChapterID.TabIndex = 1;
             this.AllowEditChapterID.Text = "Редактировать ID текущей главы";
             this.AllowEditChapterID.UseVisualStyleBackColor = true;
@@ -413,8 +420,9 @@
             // 
             this.ChapterIDEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChapterIDEdit.BackColor = System.Drawing.SystemColors.Window;
             this.ChapterIDEdit.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ChapterIDEdit.Location = new System.Drawing.Point(312, 148);
+            this.ChapterIDEdit.Location = new System.Drawing.Point(362, 148);
             this.ChapterIDEdit.Margin = new System.Windows.Forms.Padding(3, 3, 3, 30);
             this.ChapterIDEdit.Maximum = new decimal(new int[] {
             999,
@@ -428,7 +436,7 @@
             -2147483648});
             this.ChapterIDEdit.Name = "ChapterIDEdit";
             this.ChapterIDEdit.ReadOnly = true;
-            this.ChapterIDEdit.Size = new System.Drawing.Size(348, 31);
+            this.ChapterIDEdit.Size = new System.Drawing.Size(252, 31);
             this.ChapterIDEdit.TabIndex = 0;
             this.ChapterIDEdit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ChapterIDEdit.Visible = false;
@@ -485,18 +493,18 @@
             this.ChapterText.TabIndex = 6;
             this.ChapterText.Text = "Пожалуйста, откройте интерактивную книгу с помощью \"Файл\" -> \"Открыть книгу\".";
             // 
-            // VariantsEditorPage
+            // VariantsEditorTab
             // 
-            this.VariantsEditorPage.BackColor = System.Drawing.Color.PapayaWhip;
-            this.VariantsEditorPage.Controls.Add(this.button1);
-            this.VariantsEditorPage.Controls.Add(this.dataGridView1);
-            this.VariantsEditorPage.Controls.Add(this.VariantsOfStoryDevelopmentLabel);
-            this.VariantsEditorPage.Location = new System.Drawing.Point(4, 29);
-            this.VariantsEditorPage.Name = "VariantsEditorPage";
-            this.VariantsEditorPage.Padding = new System.Windows.Forms.Padding(3);
-            this.VariantsEditorPage.Size = new System.Drawing.Size(998, 660);
-            this.VariantsEditorPage.TabIndex = 3;
-            this.VariantsEditorPage.Text = "Настройка вариантов развития сюжета";
+            this.VariantsEditorTab.BackColor = System.Drawing.Color.PapayaWhip;
+            this.VariantsEditorTab.Controls.Add(this.button1);
+            this.VariantsEditorTab.Controls.Add(this.VariantsGrid);
+            this.VariantsEditorTab.Controls.Add(this.VariantsOfStoryDevelopmentLabel);
+            this.VariantsEditorTab.Location = new System.Drawing.Point(4, 29);
+            this.VariantsEditorTab.Name = "VariantsEditorTab";
+            this.VariantsEditorTab.Padding = new System.Windows.Forms.Padding(3);
+            this.VariantsEditorTab.Size = new System.Drawing.Size(998, 660);
+            this.VariantsEditorTab.TabIndex = 3;
+            this.VariantsEditorTab.Text = "Настройка вариантов развития сюжета";
             // 
             // button1
             // 
@@ -508,34 +516,66 @@
             this.button1.Text = "Сохранить изменения";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // VariantsGrid
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.VariantsGrid.AllowUserToAddRows = false;
+            this.VariantsGrid.AllowUserToDeleteRows = false;
+            this.VariantsGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.PapayaWhip;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.VariantsGrid.BackgroundColor = System.Drawing.Color.PapayaWhip;
+            this.VariantsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.NullValue = "123123";
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VariantsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.VariantsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.VariantsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Grid_VariantNumber,
             this.Grid_VariantText,
             this.Grid_NextChapterId});
-            this.dataGridView1.GridColor = System.Drawing.Color.PapayaWhip;
-            this.dataGridView1.Location = new System.Drawing.Point(28, 100);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(25);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(942, 477);
-            this.dataGridView1.TabIndex = 13;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.BurlyWood;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.PapayaWhip;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.VariantsGrid.DefaultCellStyle = dataGridViewCellStyle6;
+            this.VariantsGrid.GridColor = System.Drawing.Color.PapayaWhip;
+            this.VariantsGrid.Location = new System.Drawing.Point(28, 100);
+            this.VariantsGrid.Margin = new System.Windows.Forms.Padding(25);
+            this.VariantsGrid.Name = "VariantsGrid";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.PapayaWhip;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VariantsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.VariantsGrid.RowHeadersVisible = false;
+            this.VariantsGrid.RowHeadersWidth = 51;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.BurlyWood;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.PapayaWhip;
+            this.VariantsGrid.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.VariantsGrid.RowTemplate.Height = 29;
+            this.VariantsGrid.Size = new System.Drawing.Size(942, 477);
+            this.VariantsGrid.TabIndex = 13;
+            this.VariantsGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VariantsGrid_CellContentClick);
             // 
             // Grid_VariantNumber
             // 
             this.Grid_VariantNumber.Frozen = true;
             this.Grid_VariantNumber.HeaderText = "Номер варианта";
-            this.Grid_VariantNumber.MaxInputLength = 10;
+            this.Grid_VariantNumber.MaxInputLength = 2;
             this.Grid_VariantNumber.MinimumWidth = 6;
             this.Grid_VariantNumber.Name = "Grid_VariantNumber";
             this.Grid_VariantNumber.ReadOnly = true;
@@ -545,6 +585,7 @@
             // 
             this.Grid_VariantText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Grid_VariantText.HeaderText = "Текст варианта";
+            this.Grid_VariantText.MaxInputLength = 200;
             this.Grid_VariantText.MinimumWidth = 6;
             this.Grid_VariantText.Name = "Grid_VariantText";
             // 
@@ -581,6 +622,7 @@
             this.MainMenuStrip = this.BookEditorStrip;
             this.MinimumSize = new System.Drawing.Size(640, 480);
             this.Name = "BookEditor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Interactive Book Editor";
             this.Load += new System.EventHandler(this.BookEditor_Load);
             this.BookEditorStrip.ResumeLayout(false);
@@ -593,8 +635,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.VariantNumberCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ChapterIDEdit)).EndInit();
             this.ChapterTextProppertiesTab.ResumeLayout(false);
-            this.VariantsEditorPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.VariantsEditorTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.VariantsGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -604,14 +646,14 @@
 
         private MenuStrip BookEditorStrip;
         private ToolStripMenuItem файлToolStripMenuItem;
-        private ToolStripMenuItem открытьКнигуToolStripMenuItem;
+        private ToolStripMenuItem OpenBookToolStripMenuItem;
         private ToolStripMenuItem SaveBookToolStripMenuItem;
         private ToolStripMenuItem главыToolStripMenuItem;
         private ToolStripMenuItem добавитьToolStripMenuItem;
         private ToolStripMenuItem переключитьсяToolStripMenuItem;
         private ToolStripMenuItem удалитьToolStripMenuItem;
-        private OpenFileDialog openFileDialog1;
-        private SaveFileDialog saveFileDialog1;
+        private OpenFileDialog OpenBookDialog;
+        private SaveFileDialog SaveBookDialog;
         private TabControl IntercativeBookPropperties;
         private TabPage BookProppertiesPage;
         private TabPage ChapterProppertiesPage;
@@ -632,16 +674,16 @@
         private Button ChapterPropperties_SaveChangesButton;
         private Button BookPropperties_SaveChangesButton;
         private NumericUpDown VariantNumberCounter;
-        private TabPage VariantsEditorPage;
+        private TabPage VariantsEditorTab;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private DataGridView dataGridView1;
+        private DataGridView VariantsGrid;
         private Label VariantsOfStoryDevelopmentLabel;
+        private Button button1;
+        private TextBox PasswordChecking;
+        private Label PasswordSetupLabel;
+        private TextBox PasswordSetBox;
         private DataGridViewTextBoxColumn Grid_VariantNumber;
         private DataGridViewTextBoxColumn Grid_VariantText;
         private DataGridViewComboBoxColumn Grid_NextChapterId;
-        private Button button1;
-        private TextBox Password;
-        private Label PasswordSetupLabel;
-        private TextBox PasswordSetBox;
     }
 }

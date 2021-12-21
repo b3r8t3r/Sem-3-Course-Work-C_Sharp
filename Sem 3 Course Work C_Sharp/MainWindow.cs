@@ -14,14 +14,14 @@ namespace Sem_3_Course_Work_C_Sharp
             //OpenBookDialog.Filter = "Файл интерактивной книги (*.ibr)|*.ibr|Текстовый документ (*.txt)|*.txt|Все файлы (*.*)|*.*";
         }
 
-        static Book restored_book;
+        static Book restored_book = new Book();
 
         static int chapter_index = 0;
 
-        internal string key = "IBR4EVER";
+        
         private void ChangeChapter()
         {
-            int i = 0;
+            int i;
             BookLabel.Text = restored_book.BookTitle;
 
             for (i = 0; restored_book.Chapters[i].ChapterId != chapter_index; i++) { 
@@ -42,8 +42,6 @@ namespace Sem_3_Course_Work_C_Sharp
 
         private void OpenBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            restored_book = new Book();
-
             if (OpenBookDialog.ShowDialog() == DialogResult.Cancel)
                 return;
             // получаем выбранный файл

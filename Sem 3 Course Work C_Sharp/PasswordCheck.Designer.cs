@@ -47,11 +47,12 @@
             // PasswordCheckLabel
             // 
             this.PasswordCheckLabel.AutoSize = true;
+            this.PasswordCheckLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PasswordCheckLabel.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.PasswordCheckLabel.Location = new System.Drawing.Point(105, 56);
             this.PasswordCheckLabel.Margin = new System.Windows.Forms.Padding(96, 0, 3, 30);
             this.PasswordCheckLabel.Name = "PasswordCheckLabel";
-            this.PasswordCheckLabel.Size = new System.Drawing.Size(208, 27);
+            this.PasswordCheckLabel.Size = new System.Drawing.Size(210, 29);
             this.PasswordCheckLabel.TabIndex = 1;
             this.PasswordCheckLabel.Text = "Введите пароль";
             // 
@@ -60,8 +61,10 @@
             this.PasswordCheckBox.Location = new System.Drawing.Point(105, 116);
             this.PasswordCheckBox.Margin = new System.Windows.Forms.Padding(125, 3, 0, 30);
             this.PasswordCheckBox.Name = "PasswordCheckBox";
+            this.PasswordCheckBox.PlaceholderText = "Пароль книги";
             this.PasswordCheckBox.Size = new System.Drawing.Size(208, 27);
             this.PasswordCheckBox.TabIndex = 2;
+            this.PasswordCheckBox.UseSystemPasswordChar = true;
             // 
             // UndoButton
             // 
@@ -71,6 +74,7 @@
             this.UndoButton.TabIndex = 3;
             this.UndoButton.Text = "Отменить ввод";
             this.UndoButton.UseVisualStyleBackColor = true;
+            this.UndoButton.Click += new System.EventHandler(this.UndoButton_Click);
             // 
             // PasswordCheck
             // 
