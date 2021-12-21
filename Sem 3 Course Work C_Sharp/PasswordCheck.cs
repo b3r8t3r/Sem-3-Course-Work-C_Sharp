@@ -16,5 +16,11 @@ namespace Sem_3_Course_Work_C_Sharp
         {
             InitializeComponent();
         }
+
+        private void PasswordCheckButton_Click(object sender, EventArgs e)
+        {
+            string incerted_password = PasswordCheckBox.Text.ToString();
+            
+        }
     }
 }

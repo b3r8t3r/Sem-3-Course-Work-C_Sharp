@@ -28,8 +28,12 @@ namespace Sem_3_Course_Work_C_Sharp
 
         public string BookTitle { get; set; }
 
+        public string Password { get; set; }
+
         public Chapter[] Chapters { get; set; }
 
     }
+
+    
 
 }

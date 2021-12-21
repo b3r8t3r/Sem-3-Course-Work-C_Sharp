@@ -31,6 +31,7 @@
             this.PasswordCheckButton = new System.Windows.Forms.Button();
             this.PasswordCheckLabel = new System.Windows.Forms.Label();
             this.PasswordCheckBox = new System.Windows.Forms.TextBox();
+            this.UndoButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // PasswordCheckButton
@@ -41,6 +42,7 @@
             this.PasswordCheckButton.TabIndex = 0;
             this.PasswordCheckButton.Text = "Подтвердить";
             this.PasswordCheckButton.UseVisualStyleBackColor = true;
+            this.PasswordCheckButton.Click += new System.EventHandler(this.PasswordCheckButton_Click);
             // 
             // PasswordCheckLabel
             // 
@@ -55,11 +57,20 @@
             // 
             // PasswordCheckBox
             // 
-            this.PasswordCheckBox.Location = new System.Drawing.Point(134, 116);
+            this.PasswordCheckBox.Location = new System.Drawing.Point(105, 116);
             this.PasswordCheckBox.Margin = new System.Windows.Forms.Padding(125, 3, 0, 30);
             this.PasswordCheckBox.Name = "PasswordCheckBox";
-            this.PasswordCheckBox.Size = new System.Drawing.Size(150, 27);
+            this.PasswordCheckBox.Size = new System.Drawing.Size(208, 27);
             this.PasswordCheckBox.TabIndex = 2;
+            // 
+            // UndoButton
+            // 
+            this.UndoButton.Location = new System.Drawing.Point(134, 211);
+            this.UndoButton.Name = "UndoButton";
+            this.UndoButton.Size = new System.Drawing.Size(150, 29);
+            this.UndoButton.TabIndex = 3;
+            this.UndoButton.Text = "Отменить ввод";
+            this.UndoButton.UseVisualStyleBackColor = true;
             // 
             // PasswordCheck
             // 
@@ -67,6 +78,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PapayaWhip;
             this.ClientSize = new System.Drawing.Size(400, 250);
+            this.Controls.Add(this.UndoButton);
             this.Controls.Add(this.PasswordCheckBox);
             this.Controls.Add(this.PasswordCheckLabel);
             this.Controls.Add(this.PasswordCheckButton);
@@ -85,5 +97,6 @@
         private Button PasswordCheckButton;
         private Label PasswordCheckLabel;
         private TextBox PasswordCheckBox;
+        private Button UndoButton;
     }
 }

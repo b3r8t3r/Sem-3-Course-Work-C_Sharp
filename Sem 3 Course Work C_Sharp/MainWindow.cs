@@ -18,15 +18,11 @@ namespace Sem_3_Course_Work_C_Sharp
 
         static int chapter_index = 0;
 
+        internal string key = "IBR4EVER";
         private void ChangeChapter()
         {
             int i = 0;
             BookLabel.Text = restored_book.BookTitle;
-            //while (restored_book.Chapters[i].ChapterId != chapter_index)
-            //{
-            //    i++;
-            //    //if (i >= restored_book.Chapters.Count()) i = -1;
-            //}
 
             for (i = 0; restored_book.Chapters[i].ChapterId != chapter_index; i++) { 
                 if (i >= restored_book.Chapters.Count()) { 
@@ -87,11 +83,7 @@ namespace Sem_3_Course_Work_C_Sharp
             
         }
 
-        private void AboutProgrammToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AboutProgramBox form = new AboutProgramBox();
-            form.ShowDialog();
-        }
+        
 
         private void OpenFontParametersToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -111,9 +103,10 @@ namespace Sem_3_Course_Work_C_Sharp
         private void OpenBookEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BookEditor form = new BookEditor();
+
+            //PasswordCheck form = new ();
+
             form.ShowDialog();
         }
-
-        //private void 
     }
 }
