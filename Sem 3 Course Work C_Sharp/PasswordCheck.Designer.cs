@@ -36,7 +36,7 @@
             // 
             // PasswordCheckButton
             // 
-            this.PasswordCheckButton.Location = new System.Drawing.Point(134, 176);
+            this.PasswordCheckButton.Location = new System.Drawing.Point(436, 406);
             this.PasswordCheckButton.Name = "PasswordCheckButton";
             this.PasswordCheckButton.Size = new System.Drawing.Size(150, 29);
             this.PasswordCheckButton.TabIndex = 0;
@@ -49,7 +49,7 @@
             this.PasswordCheckLabel.AutoSize = true;
             this.PasswordCheckLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PasswordCheckLabel.Font = new System.Drawing.Font("Courier New", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.PasswordCheckLabel.Location = new System.Drawing.Point(105, 56);
+            this.PasswordCheckLabel.Location = new System.Drawing.Point(407, 286);
             this.PasswordCheckLabel.Margin = new System.Windows.Forms.Padding(96, 0, 3, 30);
             this.PasswordCheckLabel.Name = "PasswordCheckLabel";
             this.PasswordCheckLabel.Size = new System.Drawing.Size(210, 29);
@@ -58,7 +58,7 @@
             // 
             // PasswordCheckBox
             // 
-            this.PasswordCheckBox.Location = new System.Drawing.Point(105, 116);
+            this.PasswordCheckBox.Location = new System.Drawing.Point(407, 346);
             this.PasswordCheckBox.Margin = new System.Windows.Forms.Padding(125, 3, 0, 30);
             this.PasswordCheckBox.Name = "PasswordCheckBox";
             this.PasswordCheckBox.PlaceholderText = "Пароль книги";
@@ -68,7 +68,7 @@
             // 
             // UndoButton
             // 
-            this.UndoButton.Location = new System.Drawing.Point(134, 211);
+            this.UndoButton.Location = new System.Drawing.Point(436, 441);
             this.UndoButton.Name = "UndoButton";
             this.UndoButton.Size = new System.Drawing.Size(150, 29);
             this.UndoButton.TabIndex = 3;
@@ -81,16 +81,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PapayaWhip;
-            this.ClientSize = new System.Drawing.Size(400, 250);
+            this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.UndoButton);
             this.Controls.Add(this.PasswordCheckBox);
             this.Controls.Add(this.PasswordCheckLabel);
             this.Controls.Add(this.PasswordCheckButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PasswordCheck";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PasswordCheck";
+            this.Text = "Password Check";
             this.ResumeLayout(false);
             this.PerformLayout();
 

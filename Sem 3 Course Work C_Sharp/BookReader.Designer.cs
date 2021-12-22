@@ -1,6 +1,6 @@
 ﻿namespace Sem_3_Course_Work_C_Sharp
 {
-    partial class MainWindow
+    partial class BookReader
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookReader));
             this.ChoiceOptions = new System.Windows.Forms.ComboBox();
             this.AcceptButton = new System.Windows.Forms.Button();
             this.BookLabel = new System.Windows.Forms.Label();
             this.ChapterText = new System.Windows.Forms.RichTextBox();
-            this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.BookReaderStrip = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenBookEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +41,7 @@
             this.OpenFontParametersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenBookDialog = new System.Windows.Forms.OpenFileDialog();
             this.fontDialog = new System.Windows.Forms.FontDialog();
-            this.MainMenuStrip.SuspendLayout();
+            this.BookReaderStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // ChoiceOptions
@@ -110,18 +110,18 @@
             this.ChapterText.TabIndex = 5;
             this.ChapterText.Text = "Пожалуйста, откройте интерактивную книгу с помощью \"Файл\" -> \"Открыть книгу\".";
             // 
-            // MainMenuStrip
+            // BookReaderStrip
             // 
-            this.MainMenuStrip.BackColor = System.Drawing.Color.BurlyWood;
-            this.MainMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.BookReaderStrip.BackColor = System.Drawing.Color.BurlyWood;
+            this.BookReaderStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.BookReaderStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
             this.параметрыToolStripMenuItem});
-            this.MainMenuStrip.Location = new System.Drawing.Point(5, 0);
-            this.MainMenuStrip.Name = "MainMenuStrip";
-            this.MainMenuStrip.Size = new System.Drawing.Size(996, 28);
-            this.MainMenuStrip.TabIndex = 6;
-            this.MainMenuStrip.Text = "menuStrip1";
+            this.BookReaderStrip.Location = new System.Drawing.Point(5, 0);
+            this.BookReaderStrip.Name = "BookReaderStrip";
+            this.BookReaderStrip.Size = new System.Drawing.Size(996, 28);
+            this.BookReaderStrip.TabIndex = 6;
+            this.BookReaderStrip.Text = "menuStrip1";
             // 
             // файлToolStripMenuItem
             // 
@@ -172,7 +172,7 @@
     " (*.*)|*.*";
             this.OpenBookDialog.Title = "Открыть интерактивную книгу";
             // 
-            // MainWindow
+            // BookReader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -183,17 +183,17 @@
             this.Controls.Add(this.BookLabel);
             this.Controls.Add(this.AcceptButton);
             this.Controls.Add(this.ChoiceOptions);
-            this.Controls.Add(this.MainMenuStrip);
+            this.Controls.Add(this.BookReaderStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(2540, 1600);
             this.MinimumSize = new System.Drawing.Size(640, 480);
-            this.Name = "MainWindow";
+            this.Name = "BookReader";
             this.Padding = new System.Windows.Forms.Padding(5, 0, 5, 20);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Interactive Book Reader";
             this.Load += new System.EventHandler(this.MainWindow_Load);
-            this.MainMenuStrip.ResumeLayout(false);
-            this.MainMenuStrip.PerformLayout();
+            this.BookReaderStrip.ResumeLayout(false);
+            this.BookReaderStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,7 +204,7 @@
         private Button AcceptButton;
         private Label BookLabel;
         private RichTextBox ChapterText;
-        private MenuStrip MainMenuStrip;
+        private MenuStrip BookReaderStrip;
         private ToolStripMenuItem файлToolStripMenuItem;
         private ToolStripMenuItem параметрыToolStripMenuItem;
         private ToolStripMenuItem OpenBookToolStripMenuItem;

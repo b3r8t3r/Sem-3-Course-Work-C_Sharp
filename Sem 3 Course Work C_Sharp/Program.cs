@@ -10,7 +10,7 @@ namespace Sem_3_Course_Work_C_Sharp
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainWindow());
+            Application.Run(new BookReader());
         }
     }
 }

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Sem_3_Course_Work_C_Sharp
 {
-    public partial class MainWindow : Form
+    public partial class BookReader : Form
     {
-        public MainWindow()
+        public BookReader()
         {
             InitializeComponent();
 
@@ -47,15 +47,21 @@ namespace Sem_3_Course_Work_C_Sharp
             // получаем выбранный файл
             string filename = OpenBookDialog.FileName;
             // читаем файл в строку
-            //string fileText = System.IO.File.ReadAllText(filename);
+            
             StreamReader FileReader = new StreamReader(filename);
             restored_book = JsonSerializer.Deserialize<Book>(FileReader.ReadLine());
             FileReader.Close();
 
             ChangeChapter();
             
-            //ChapterText.Text = fileText;
-            MessageBox.Show("Книга успешно открыта!");
+            
+            MessageBox.Show(
+                "Книга успешно открыта!",
+                "Информация",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1
+            );
         }
 
         private void AcceptButton_Click(object sender, EventArgs e)
@@ -69,12 +75,9 @@ namespace Sem_3_Course_Work_C_Sharp
 
             else
             {
-
                 if (chapter_index != -1)
                     chapter_index = restored_book.Chapters[chapter_index].ChapterVariants[selectedVariant];
                 else Application.Exit();
-
-                //MessageBox.Show($"Выбран вариант с индексом {ChoiceOptions.SelectedIndex}!\nЭтот вариант - \"{selectedVariant}\"");
 
                 ChangeChapter();
             }
@@ -101,8 +104,6 @@ namespace Sem_3_Course_Work_C_Sharp
         private void OpenBookEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BookEditor form = new BookEditor();
-
-            //PasswordCheck form = new ();
 
             form.ShowDialog();
         }

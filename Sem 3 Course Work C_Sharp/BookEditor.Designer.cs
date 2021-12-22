@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BookEditorStrip = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CreateNewBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.главыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.переключитьсяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddChapterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SwitchChapterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteChapterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenBookDialog = new System.Windows.Forms.OpenFileDialog();
             this.SaveBookDialog = new System.Windows.Forms.SaveFileDialog();
             this.IntercativeBookPropperties = new System.Windows.Forms.TabControl();
@@ -70,9 +71,10 @@
             this.VariantsGrid = new System.Windows.Forms.DataGridView();
             this.Grid_VariantNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Grid_VariantText = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Grid_NextChapterId = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Grid_NextChapterId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VariantsOfStoryDevelopmentLabel = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.chapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BookEditorStrip.SuspendLayout();
             this.IntercativeBookPropperties.SuspendLayout();
             this.BookProppertiesPage.SuspendLayout();
@@ -82,6 +84,7 @@
             this.ChapterTextProppertiesTab.SuspendLayout();
             this.VariantsEditorTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VariantsGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chapterBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // BookEditorStrip
@@ -136,37 +139,48 @@
             // 
             this.главыToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.главыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьToolStripMenuItem,
-            this.переключитьсяToolStripMenuItem,
-            this.удалитьToolStripMenuItem});
+            this.AddChapterToolStripMenuItem,
+            this.SwitchChapterToolStripMenuItem,
+            this.DeleteChapterToolStripMenuItem});
             this.главыToolStripMenuItem.Name = "главыToolStripMenuItem";
             this.главыToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
             this.главыToolStripMenuItem.Text = "Главы";
             // 
-            // добавитьToolStripMenuItem
+            // AddChapterToolStripMenuItem
             // 
-            this.добавитьToolStripMenuItem.BackColor = System.Drawing.Color.BurlyWood;
-            this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.добавитьToolStripMenuItem.Text = "Добавить";
+            this.AddChapterToolStripMenuItem.BackColor = System.Drawing.Color.BurlyWood;
+            this.AddChapterToolStripMenuItem.Name = "AddChapterToolStripMenuItem";
+            this.AddChapterToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.AddChapterToolStripMenuItem.Text = "Добавить";
+            this.AddChapterToolStripMenuItem.Click += new System.EventHandler(this.AddChapterToolStripMenuItem_Click);
             // 
-            // переключитьсяToolStripMenuItem
+            // SwitchChapterToolStripMenuItem
             // 
-            this.переключитьсяToolStripMenuItem.BackColor = System.Drawing.Color.BurlyWood;
-            this.переключитьсяToolStripMenuItem.Name = "переключитьсяToolStripMenuItem";
-            this.переключитьсяToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.переключитьсяToolStripMenuItem.Text = "Переключиться";
+            this.SwitchChapterToolStripMenuItem.BackColor = System.Drawing.Color.BurlyWood;
+            this.SwitchChapterToolStripMenuItem.Name = "SwitchChapterToolStripMenuItem";
+            this.SwitchChapterToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.SwitchChapterToolStripMenuItem.Text = "Переключиться";
+            this.SwitchChapterToolStripMenuItem.Click += new System.EventHandler(this.SwitchChapterToolStripMenuItem_Click);
             // 
-            // удалитьToolStripMenuItem
+            // DeleteChapterToolStripMenuItem
             // 
-            this.удалитьToolStripMenuItem.BackColor = System.Drawing.Color.BurlyWood;
-            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.удалитьToolStripMenuItem.Text = "Удалить";
+            this.DeleteChapterToolStripMenuItem.BackColor = System.Drawing.Color.BurlyWood;
+            this.DeleteChapterToolStripMenuItem.Name = "DeleteChapterToolStripMenuItem";
+            this.DeleteChapterToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.DeleteChapterToolStripMenuItem.Text = "Удалить";
+            this.DeleteChapterToolStripMenuItem.Click += new System.EventHandler(this.DeleteChapterToolStripMenuItem_Click);
             // 
             // OpenBookDialog
             // 
+            this.OpenBookDialog.Filter = "Файл интерактивной книги (*.ibr)|*.ibr|Текстовый документ (*.txt)|*.txt|Все файлы" +
+    " (*.*)|*.*";
             this.OpenBookDialog.Title = "Открыть книгу";
+            // 
+            // SaveBookDialog
+            // 
+            this.SaveBookDialog.DefaultExt = "ibr";
+            this.SaveBookDialog.Filter = "Файл интерактивной книги (*.ibr)|*.ibr|Текстовый документ (*.txt)|*.txt|Все файлы" +
+    " (*.*)|*.*";
             // 
             // IntercativeBookPropperties
             // 
@@ -525,51 +539,50 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.VariantsGrid.BackgroundColor = System.Drawing.Color.PapayaWhip;
             this.VariantsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.NullValue = "123123";
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VariantsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.NullValue = "123123";
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VariantsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.VariantsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.VariantsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Grid_VariantNumber,
             this.Grid_VariantText,
             this.Grid_NextChapterId});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.BurlyWood;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkGoldenrod;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.PapayaWhip;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.VariantsGrid.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.BurlyWood;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.PapayaWhip;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.VariantsGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.VariantsGrid.GridColor = System.Drawing.Color.PapayaWhip;
             this.VariantsGrid.Location = new System.Drawing.Point(28, 100);
             this.VariantsGrid.Margin = new System.Windows.Forms.Padding(25);
             this.VariantsGrid.Name = "VariantsGrid";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.PapayaWhip;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkGoldenrod;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.LightYellow;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VariantsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.PapayaWhip;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VariantsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.VariantsGrid.RowHeadersVisible = false;
             this.VariantsGrid.RowHeadersWidth = 51;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.BurlyWood;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkGoldenrod;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.PapayaWhip;
-            this.VariantsGrid.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.BurlyWood;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.PapayaWhip;
+            this.VariantsGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.VariantsGrid.RowTemplate.Height = 29;
             this.VariantsGrid.Size = new System.Drawing.Size(942, 477);
             this.VariantsGrid.TabIndex = 13;
-            this.VariantsGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VariantsGrid_CellContentClick);
             // 
             // Grid_VariantNumber
             // 
@@ -579,13 +592,14 @@
             this.Grid_VariantNumber.MinimumWidth = 6;
             this.Grid_VariantNumber.Name = "Grid_VariantNumber";
             this.Grid_VariantNumber.ReadOnly = true;
-            this.Grid_VariantNumber.Width = 142;
+            this.Grid_VariantNumber.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Grid_VariantNumber.Width = 80;
             // 
             // Grid_VariantText
             // 
             this.Grid_VariantText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Grid_VariantText.HeaderText = "Текст варианта";
-            this.Grid_VariantText.MaxInputLength = 200;
+            this.Grid_VariantText.MaxInputLength = 255;
             this.Grid_VariantText.MinimumWidth = 6;
             this.Grid_VariantText.Name = "Grid_VariantText";
             // 
@@ -594,6 +608,8 @@
             this.Grid_NextChapterId.HeaderText = "Переход на главу с выбранным ID";
             this.Grid_NextChapterId.MinimumWidth = 6;
             this.Grid_NextChapterId.Name = "Grid_NextChapterId";
+            this.Grid_NextChapterId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Grid_NextChapterId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Grid_NextChapterId.Width = 107;
             // 
             // VariantsOfStoryDevelopmentLabel
@@ -610,6 +626,10 @@
             this.VariantsOfStoryDevelopmentLabel.TabIndex = 12;
             this.VariantsOfStoryDevelopmentLabel.Text = "Варианты развития сюжета";
             this.VariantsOfStoryDevelopmentLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chapterBindingSource
+            // 
+            this.chapterBindingSource.DataSource = typeof(Sem_3_Course_Work_C_Sharp.Chapter);
             // 
             // BookEditor
             // 
@@ -637,6 +657,7 @@
             this.ChapterTextProppertiesTab.ResumeLayout(false);
             this.VariantsEditorTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.VariantsGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chapterBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -649,9 +670,9 @@
         private ToolStripMenuItem OpenBookToolStripMenuItem;
         private ToolStripMenuItem SaveBookToolStripMenuItem;
         private ToolStripMenuItem главыToolStripMenuItem;
-        private ToolStripMenuItem добавитьToolStripMenuItem;
-        private ToolStripMenuItem переключитьсяToolStripMenuItem;
-        private ToolStripMenuItem удалитьToolStripMenuItem;
+        private ToolStripMenuItem AddChapterToolStripMenuItem;
+        private ToolStripMenuItem SwitchChapterToolStripMenuItem;
+        private ToolStripMenuItem DeleteChapterToolStripMenuItem;
         private OpenFileDialog OpenBookDialog;
         private SaveFileDialog SaveBookDialog;
         private TabControl IntercativeBookPropperties;
@@ -682,8 +703,9 @@
         private TextBox PasswordChecking;
         private Label PasswordSetupLabel;
         private TextBox PasswordSetBox;
+        private BindingSource chapterBindingSource;
         private DataGridViewTextBoxColumn Grid_VariantNumber;
         private DataGridViewTextBoxColumn Grid_VariantText;
-        private DataGridViewComboBoxColumn Grid_NextChapterId;
+        private DataGridViewTextBoxColumn Grid_NextChapterId;
     }
 }
