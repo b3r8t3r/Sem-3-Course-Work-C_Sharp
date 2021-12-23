@@ -15,6 +15,8 @@ namespace Sem_3_Course_Work_C_Sharp
 
         static int new_id = 0;
 
+        static bool SucessfulChange = false;
+
         public int GetNew_Id()
         {
             return new_id;
@@ -47,6 +49,7 @@ namespace Sem_3_Course_Work_C_Sharp
             else
             {
                 new_id = Convert.ToInt32(selectedVariant);
+                SucessfulChange = true;
                 Close();
             }
         }

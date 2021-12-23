@@ -191,7 +191,7 @@
             this.Padding = new System.Windows.Forms.Padding(5, 0, 5, 20);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Interactive Book Reader";
-            this.Load += new System.EventHandler(this.MainWindow_Load);
+            //this.Load += new System.EventHandler(this.MainWindow_Load);
             this.BookReaderStrip.ResumeLayout(false);
             this.BookReaderStrip.PerformLayout();
             this.ResumeLayout(false);

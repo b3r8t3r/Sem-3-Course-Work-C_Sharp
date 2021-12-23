@@ -15,7 +15,7 @@ namespace Sem_3_Course_Work_C_Sharp
     {
         private string book_password;
 
-        private string key = "IBR4EVER";
+        //private string key = "IBR4EVER";
 
         internal static bool PasswordsEqual = false;
         public PasswordCheck()
@@ -25,9 +25,7 @@ namespace Sem_3_Course_Work_C_Sharp
         public PasswordCheck(string _pswrd )
         {
             InitializeComponent();
-            Viginer_95 Decrypt = new ();
-            Decrypt.Set_Message(_pswrd);
-            Decrypt.Set_Key(key);
+            Viginer_95 Decrypt = new (_pswrd);
             book_password = Decrypt.Decrypt();
         }
 
@@ -49,24 +47,23 @@ namespace Sem_3_Course_Work_C_Sharp
                 else
                 {
                     MessageBox.Show(
-                    "Неверный пароль",
-                    "Ошибка доступа",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error,
-                    MessageBoxDefaultButton.Button1
-                );
+                        "Неверный пароль",
+                        "Ошибка доступа",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1
+                    );
                 }
             }
             else
             {
                 MessageBox.Show(
-                "Поле ввода пароля пустое",
-                "Ошибка ввода",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error,
-                MessageBoxDefaultButton.Button1
+                    "Поле ввода пароля пустое",
+                    "Ошибка ввода",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1
                 );
-                
             }
         }
 

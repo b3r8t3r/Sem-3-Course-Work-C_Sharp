@@ -45,6 +45,7 @@
             this.ChangeChapter_AcceptChangesButton.TabIndex = 17;
             this.ChangeChapter_AcceptChangesButton.Text = "Подтвердить";
             this.ChangeChapter_AcceptChangesButton.UseVisualStyleBackColor = true;
+            this.ChangeChapter_AcceptChangesButton.Click += new System.EventHandler(this.ChangeChapter_AcceptChangesButton_Click);
             // 
             // DeleteChapterLabel
             // 
@@ -72,6 +73,7 @@
             this.CurrentIDRadioButton.TabStop = true;
             this.CurrentIDRadioButton.Text = "с текущим ID";
             this.CurrentIDRadioButton.UseVisualStyleBackColor = true;
+            this.CurrentIDRadioButton.Click += new System.EventHandler(this.CurrentIDRadioButton_Click);
             // 
             // VariousIDRadioButton
             // 
@@ -84,6 +86,7 @@
             this.VariousIDRadioButton.TabStop = true;
             this.VariousIDRadioButton.Text = "с выбранным ID";
             this.VariousIDRadioButton.UseVisualStyleBackColor = true;
+            this.VariousIDRadioButton.Click += new System.EventHandler(this.VariousIDRadioButton_Click);
             // 
             // CurrentIDBox
             // 

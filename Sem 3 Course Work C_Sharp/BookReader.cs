@@ -18,16 +18,16 @@ namespace Sem_3_Course_Work_C_Sharp
 
         static int chapter_index = 0;
 
-        
+
         private void ChangeChapter()
         {
             int i;
             BookLabel.Text = restored_book.BookTitle;
 
-            for (i = 0; restored_book.Chapters[i].ChapterId != chapter_index; i++) { 
-                if (i >= restored_book.Chapters.Count()) { 
-                    i = -1; 
-                    chapter_index = -1; 
+            for (i = 0; restored_book.Chapters[i].ChapterId != chapter_index; i++) {
+                if (i >= restored_book.Chapters.Count()) {
+                    i = -1;
+                    chapter_index = -1;
                 }
             }
 
@@ -47,65 +47,65 @@ namespace Sem_3_Course_Work_C_Sharp
             // получаем выбранный файл
             string filename = OpenBookDialog.FileName;
             // читаем файл в строку
-            
+
             StreamReader FileReader = new StreamReader(filename);
+            
             restored_book = JsonSerializer.Deserialize<Book>(FileReader.ReadLine());
+                
             FileReader.Close();
 
-            ChangeChapter();
-            
-            
-            MessageBox.Show(
-                "Книга успешно открыта!",
-                "Информация",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information,
-                MessageBoxDefaultButton.Button1
-            );
-        }
-
-        private void AcceptButton_Click(object sender, EventArgs e)
-        {
-            string? selectedVariant = ChoiceOptions.SelectedItem.ToString();
-
-            if (selectedVariant == null)
-            {
-                MessageBox.Show($"Вы ничего не выбрали. Пожалуйста, выберите вариант дальнейшего развития событий.");
-            }
-
-            else
-            {
-                if (chapter_index != -1)
-                    chapter_index = restored_book.Chapters[chapter_index].ChapterVariants[selectedVariant];
-                else Application.Exit();
-
                 ChangeChapter();
+
+
+                MessageBox.Show(
+                    "Книга успешно открыта!",
+                    "Информация",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1
+                );
             }
-            
-        }
 
-        
+            private void AcceptButton_Click(object sender, EventArgs e)
+            {
+                string? selectedVariant = ChoiceOptions.SelectedItem.ToString();
 
-        private void OpenFontParametersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (fontDialog.ShowDialog() == DialogResult.Cancel)
-                return;
-            // установка шрифта
-            ChoiceOptions.Font = fontDialog.Font;
-            ChapterText.Font = fontDialog.Font;
-            AcceptButton.Font = fontDialog.Font;
-        }
+                if (selectedVariant == null)
+                {
+                    MessageBox.Show($"Вы ничего не выбрали. Пожалуйста, выберите вариант дальнейшего развития событий.");
+                }
 
-        private void MainWindow_Load(object sender, EventArgs e)
-        {
-            ChoiceOptions.SelectedIndex = 0;
-        }
+                else
+                {
+                    if (chapter_index != -1)
+                        chapter_index = restored_book.Chapters[chapter_index].ChapterVariants[selectedVariant];
+                    else Application.Exit();
 
-        private void OpenBookEditorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            BookEditor form = new BookEditor();
+                    ChangeChapter();
+                }
 
-            form.ShowDialog();
-        }
+            }
+
+            private void OpenFontParametersToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                if (fontDialog.ShowDialog() == DialogResult.Cancel)
+                    return;
+                // установка шрифта
+                ChoiceOptions.Font = fontDialog.Font;
+                ChapterText.Font = fontDialog.Font;
+                AcceptButton.Font = fontDialog.Font;
+            }
+
+            private void MainWindow_Load(object sender, EventArgs e)
+            {
+                ChoiceOptions.SelectedIndex = 0;
+            }
+
+            private void OpenBookEditorToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                BookEditor form = new BookEditor();
+
+                form.ShowDialog();
+            }
     }
-}
+} 

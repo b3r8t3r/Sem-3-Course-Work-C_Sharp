@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BookEditorStrip = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,14 +66,13 @@
             this.ChaperTextEditorLabel = new System.Windows.Forms.Label();
             this.ChapterText = new System.Windows.Forms.RichTextBox();
             this.VariantsEditorTab = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.VariantsGridSaveChangesButton = new System.Windows.Forms.Button();
             this.VariantsGrid = new System.Windows.Forms.DataGridView();
             this.Grid_VariantNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Grid_VariantText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Grid_NextChapterId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VariantsOfStoryDevelopmentLabel = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.chapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BookEditorStrip.SuspendLayout();
             this.IntercativeBookPropperties.SuspendLayout();
             this.BookProppertiesPage.SuspendLayout();
@@ -84,7 +82,6 @@
             this.ChapterTextProppertiesTab.SuspendLayout();
             this.VariantsEditorTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VariantsGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chapterBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // BookEditorStrip
@@ -118,6 +115,7 @@
             this.SaveBookToolStripMenuItem.Name = "SaveBookToolStripMenuItem";
             this.SaveBookToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
             this.SaveBookToolStripMenuItem.Text = "Сохранить книгу";
+            this.SaveBookToolStripMenuItem.Click += new System.EventHandler(this.SaveBookToolStripMenuItem_Click);
             // 
             // OpenBookToolStripMenuItem
             // 
@@ -266,6 +264,7 @@
             this.BookPropperties_SaveChangesButton.TabIndex = 11;
             this.BookPropperties_SaveChangesButton.Text = "Сохранить изменения";
             this.BookPropperties_SaveChangesButton.UseVisualStyleBackColor = true;
+            this.BookPropperties_SaveChangesButton.Click += new System.EventHandler(this.BookPropperties_SaveChangesButton_Click);
             // 
             // AuthorLabel
             // 
@@ -374,6 +373,7 @@
             this.ChapterPropperties_SaveChangesButton.TabIndex = 9;
             this.ChapterPropperties_SaveChangesButton.Text = "Сохранить изменения";
             this.ChapterPropperties_SaveChangesButton.UseVisualStyleBackColor = true;
+            this.ChapterPropperties_SaveChangesButton.Click += new System.EventHandler(this.ChapterPropperties_SaveChangesButton_Click);
             // 
             // VariantCountLabel
             // 
@@ -439,7 +439,7 @@
             this.ChapterIDEdit.Location = new System.Drawing.Point(362, 148);
             this.ChapterIDEdit.Margin = new System.Windows.Forms.Padding(3, 3, 3, 30);
             this.ChapterIDEdit.Maximum = new decimal(new int[] {
-            999,
+            998,
             0,
             0,
             0});
@@ -477,6 +477,7 @@
             this.SaveChapterText.TabIndex = 8;
             this.SaveChapterText.Text = "Сохранить текст главы";
             this.SaveChapterText.UseVisualStyleBackColor = true;
+            this.SaveChapterText.Click += new System.EventHandler(this.SaveChapterText_Click);
             // 
             // ChaperTextEditorLabel
             // 
@@ -510,7 +511,7 @@
             // VariantsEditorTab
             // 
             this.VariantsEditorTab.BackColor = System.Drawing.Color.PapayaWhip;
-            this.VariantsEditorTab.Controls.Add(this.button1);
+            this.VariantsEditorTab.Controls.Add(this.VariantsGridSaveChangesButton);
             this.VariantsEditorTab.Controls.Add(this.VariantsGrid);
             this.VariantsEditorTab.Controls.Add(this.VariantsOfStoryDevelopmentLabel);
             this.VariantsEditorTab.Location = new System.Drawing.Point(4, 29);
@@ -520,15 +521,16 @@
             this.VariantsEditorTab.TabIndex = 3;
             this.VariantsEditorTab.Text = "Настройка вариантов развития сюжета";
             // 
-            // button1
+            // VariantsGridSaveChangesButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(803, 613);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(189, 41);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Сохранить изменения";
-            this.button1.UseVisualStyleBackColor = true;
+            this.VariantsGridSaveChangesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.VariantsGridSaveChangesButton.Location = new System.Drawing.Point(803, 613);
+            this.VariantsGridSaveChangesButton.Name = "VariantsGridSaveChangesButton";
+            this.VariantsGridSaveChangesButton.Size = new System.Drawing.Size(189, 41);
+            this.VariantsGridSaveChangesButton.TabIndex = 14;
+            this.VariantsGridSaveChangesButton.Text = "Сохранить изменения";
+            this.VariantsGridSaveChangesButton.UseVisualStyleBackColor = true;
+            this.VariantsGridSaveChangesButton.Click += new System.EventHandler(this.VariantsGridSaveChangesButton_Click);
             // 
             // VariantsGrid
             // 
@@ -539,47 +541,47 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.VariantsGrid.BackgroundColor = System.Drawing.Color.PapayaWhip;
             this.VariantsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.NullValue = "123123";
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VariantsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.NullValue = "123123";
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VariantsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.VariantsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.VariantsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Grid_VariantNumber,
             this.Grid_VariantText,
             this.Grid_NextChapterId});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.BurlyWood;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkGoldenrod;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.PapayaWhip;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.VariantsGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.BurlyWood;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.PapayaWhip;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.VariantsGrid.DefaultCellStyle = dataGridViewCellStyle6;
             this.VariantsGrid.GridColor = System.Drawing.Color.PapayaWhip;
             this.VariantsGrid.Location = new System.Drawing.Point(28, 100);
             this.VariantsGrid.Margin = new System.Windows.Forms.Padding(25);
             this.VariantsGrid.Name = "VariantsGrid";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.PapayaWhip;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGoldenrod;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.LightYellow;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VariantsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.PapayaWhip;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.VariantsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.VariantsGrid.RowHeadersVisible = false;
             this.VariantsGrid.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.BurlyWood;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkGoldenrod;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.PapayaWhip;
-            this.VariantsGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.BurlyWood;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.PapayaWhip;
+            this.VariantsGrid.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.VariantsGrid.RowTemplate.Height = 29;
             this.VariantsGrid.Size = new System.Drawing.Size(942, 477);
             this.VariantsGrid.TabIndex = 13;
@@ -627,10 +629,6 @@
             this.VariantsOfStoryDevelopmentLabel.Text = "Варианты развития сюжета";
             this.VariantsOfStoryDevelopmentLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // chapterBindingSource
-            // 
-            this.chapterBindingSource.DataSource = typeof(Sem_3_Course_Work_C_Sharp.Chapter);
-            // 
             // BookEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -657,7 +655,6 @@
             this.ChapterTextProppertiesTab.ResumeLayout(false);
             this.VariantsEditorTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.VariantsGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chapterBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -699,11 +696,10 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private DataGridView VariantsGrid;
         private Label VariantsOfStoryDevelopmentLabel;
-        private Button button1;
+        private Button VariantsGridSaveChangesButton;
         private TextBox PasswordChecking;
         private Label PasswordSetupLabel;
         private TextBox PasswordSetBox;
-        private BindingSource chapterBindingSource;
         private DataGridViewTextBoxColumn Grid_VariantNumber;
         private DataGridViewTextBoxColumn Grid_VariantText;
         private DataGridViewTextBoxColumn Grid_NextChapterId;

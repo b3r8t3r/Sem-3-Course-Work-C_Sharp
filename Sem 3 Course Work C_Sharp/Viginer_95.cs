@@ -6,11 +6,24 @@ using System.Threading.Tasks;
 
 namespace Sem_3_Course_Work_C_Sharp
 {
+    //  Модификация шифра Вижинера, шифрующая сообщения в пределах 95 символов (ASCII - [32;126] )
     internal class Viginer_95
     {
         private string Message; //Переменная, содержащая в себе принимаемое/передаваемое сообщение
 
         private string Key; //Ключ для шифрования/дешифрования сообщения
+
+        public Viginer_95() //Конструктор класса по-умолчанию
+        {
+            Message = "";
+            Key = "";
+        }
+
+        public Viginer_95(string _message, string _key = "IBR4EVER")    
+        {
+            Message = _message;
+            Key = _key;
+        }
 
         public string Get_Message() //Возвращение значения сообщения
         {
@@ -43,7 +56,7 @@ namespace Sem_3_Course_Work_C_Sharp
                 shift = Key[i % keyLen] - ' ';  //Переменная, отвечающая за сдвиг символа по символу ключа
 
                 edited_char = Message[i] + shift;   //Переменная, содержащая в себе измененный символ
-                if (edited_char > 126) edited_char -= 95;
+                if (edited_char > 126) edited_char -= 95;    //Сдвиг по (mod 95)
 
                 sb[i] = (Convert.ToChar(edited_char));
             }
@@ -62,7 +75,7 @@ namespace Sem_3_Course_Work_C_Sharp
                 shift = Key[i % keyLen] - ' ';  //Переменная, отвечающая за сдвиг символа по символу ключа
 
                 edited_char = Message[i] - shift;   //Переменная, содержащая в себе измененный символ
-                if (edited_char < 32) edited_char += 95;
+                if (edited_char < 32) edited_char += 95;    //Сдвиг по (mod 95)
 
                 sb[i] = (Convert.ToChar(edited_char));
             }
